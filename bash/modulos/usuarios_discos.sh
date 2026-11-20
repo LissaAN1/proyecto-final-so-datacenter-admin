@@ -24,3 +24,19 @@ mostrar_usuarios() {
 
     pausar
 }
+
+mostrar_discos() {
+    clear
+    echo "=============================================="
+    echo " DISCOS / FILESYSTEMS CONECTADOS"
+    echo "=============================================="
+    echo ""
+
+    if command -v df >/dev/null 2>&1; then
+        df -B1 --output=source,target,size,avail
+    else
+        echo "Error: el comando df no esta disponible en este sistema."
+    fi
+
+    pausar
+}
